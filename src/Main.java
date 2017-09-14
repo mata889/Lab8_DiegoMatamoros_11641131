@@ -3,7 +3,9 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.ObjectOutputStream;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -72,11 +74,11 @@ public class Main extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        abrir = new javax.swing.JMenuItem();
+        guardar = new javax.swing.JMenuItem();
+        guardarcomo = new javax.swing.JMenuItem();
+        salir = new javax.swing.JMenuItem();
+        about = new javax.swing.JMenuItem();
 
         jLabel1.setText("jLabel1");
 
@@ -145,9 +147,9 @@ public class Main extends javax.swing.JFrame {
 
         jLabel9.setText("Branquias");
 
-        lamias_alas.setModel(new javax.swing.SpinnerNumberModel(Long.valueOf(0L), Long.valueOf(0L), Long.valueOf(5L), Long.valueOf(1L)));
+        lamias_alas.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, 5.0d, 1.0d));
 
-        lamias_branquias.setModel(new javax.swing.SpinnerNumberModel(Long.valueOf(0L), Long.valueOf(0L), Long.valueOf(8L), Long.valueOf(1L)));
+        lamias_branquias.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, 8.0d, 1.0d));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jLabel11.setText("Silfides");
@@ -157,9 +159,9 @@ public class Main extends javax.swing.JFrame {
 
         jLabel13.setText("Alas");
 
-        silfides_alas.setModel(new javax.swing.SpinnerNumberModel(Long.valueOf(0L), Long.valueOf(0L), Long.valueOf(6L), Long.valueOf(1L)));
+        silfides_alas.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, 6.0d, 1.0d));
 
-        salamandras_alas.setModel(new javax.swing.SpinnerNumberModel(Long.valueOf(0L), Long.valueOf(0L), Long.valueOf(16L), Long.valueOf(1L)));
+        salamandras_alas.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, 16.0d, 1.0d));
 
         jLabel10.setText("Alas");
 
@@ -357,40 +359,45 @@ public class Main extends javax.swing.JFrame {
 
         jMenu1.setText("Menu");
 
-        jMenuItem1.setText("Abrir");
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Guardar");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        abrir.setText("Abrir");
+        abrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                abrirActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1.add(abrir);
 
-        jMenuItem3.setText("Guardar Como");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        guardar.setText("Guardar");
+        guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                guardarActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        jMenu1.add(guardar);
 
-        jMenuItem4.setText("Salir");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        guardarcomo.setText("Guardar Como");
+        guardarcomo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                guardarcomoActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem4);
+        jMenu1.add(guardarcomo);
 
-        jMenuItem5.setText("About");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        salir.setText("Salir");
+        salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                salirActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem5);
+        jMenu1.add(salir);
+
+        about.setText("About");
+        about.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutActionPerformed(evt);
+            }
+        });
+        jMenu1.add(about);
 
         jMenuBar1.add(jMenu1);
 
@@ -413,21 +420,25 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         if (rd_lamias.isSelected()) {
-            hadas hl = new lamias((double) lamias_alas.getValue(), (double) lamias_branquias.getValue(), tf_nombres.getText(), tf_edad.getText(), (double) sp_altura.getValue());
+            hadas hl = new lamias(((Number) lamias_alas.getValue()).floatValue(), ((Number) lamias_branquias.getValue()).doubleValue(), tf_nombres.getText(), tf_edad.getText(), ((Number) sp_altura.getValue()).doubleValue());
 
             ah.setPersona(hl);
+            JOptionPane.showMessageDialog(this, "Se ha creado");
         }
         if (rd_silfides.isSelected()) {
-            hadas hs = new silfides((double) silfides_alas.getValue(), tf_nombres.getText(), tf_edad.getText(), (double) sp_altura.getValue());
+            hadas hs = new silfides(((Number) silfides_alas.getValue()).doubleValue(), tf_nombres.getText(), tf_edad.getText(), ((Number) sp_altura.getValue()).doubleValue());
             ah.setPersona(hs);
+            JOptionPane.showMessageDialog(this, "Se ha creado");
         }
         if (rb_hamadriades.isSelected()) {
-            hadas hh = new hamadriades(tf_nombres.getText(), tf_edad.getText(), (double) sp_altura.getValue());
+            hadas hh = new hamadriades(tf_nombres.getText(), tf_edad.getText(), ((Number) sp_altura.getValue()).doubleValue());
             ah.setPersona(hh);
+            JOptionPane.showMessageDialog(this, "Se ha creado");
         }
         if (rb_salamandras.isSelected()) {
-            hadas hs = new salamandras((double) salamandras_alas.getValue(), tf_nombres.getText(), tf_edad.getText(), (double) sp_altura.getValue());
+            hadas hs = new salamandras(((Number) salamandras_alas.getValue()).doubleValue(), tf_nombres.getText(), tf_edad.getText(), ((Number) sp_altura.getValue()).doubleValue());
             ah.setPersona(hs);
+            JOptionPane.showMessageDialog(this, "Se ha creado");
         }
 ///////////
 
@@ -483,44 +494,65 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3MouseClicked
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_guardarActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-       
+    private void guardarcomoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarcomoActionPerformed
+
         ///guardar como --------------------
         JFileChooser jfc = new JFileChooser();
         int seleccion = jfc.showSaveDialog(this);
-        FileWriter fw = null;
-        BufferedWriter bw = null;
+       
         if (seleccion == JFileChooser.APPROVE_OPTION) {
             try {
+
                 fichero = jfc.getSelectedFile();
-                fw = new FileWriter(fichero + ".cbm");
-                bw = new BufferedWriter(fw);
+                FileOutputStream fw = null;
+                ObjectOutputStream bw = null;
+                try {
+                    fw = new FileOutputStream(fichero+".cbm");
+                    bw = new ObjectOutputStream(fw);
+                    for (hadas t : ah.listahadas) {
+                        bw.writeObject(t);
+                    }
+                    bw.flush();
+                } catch (Exception e) {
+                } finally {
+                    try {
+                        bw.close();
+                        fw.close();
+                    } catch (Exception e) {
+                    }
+                }
+                //fw = new FileWriter(fichero + ".cbm");
+                //bw = new BufferedWriter(fw);
                 bw.flush();
                 JOptionPane.showMessageDialog(this, "Archivo guardado exitosamente");
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
                 try {
-                    bw.close();
-                    fw.close();
+                   // bw.close();
+                    //fw.close();
                 } catch (Exception e) {
                 }
             }
         }
+        guardarcomo.setEnabled(false);
+    }//GEN-LAST:event_guardarcomoActionPerformed
 
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_salirActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void aboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutActionPerformed
         JOptionPane.showMessageDialog(this, "Juego de Hadas \n" + "Este juego se trata de crear sus propias Hadas \n" + "y hacerlas pelear hasta que una de las 2 pierda");
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_aboutActionPerformed
+
+    private void abrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abrirActionPerformed
+        
+    }//GEN-LAST:event_abrirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -560,6 +592,10 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup HadasBotones;
+    private javax.swing.JMenuItem about;
+    private javax.swing.JMenuItem abrir;
+    private javax.swing.JMenuItem guardar;
+    private javax.swing.JMenuItem guardarcomo;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -578,11 +614,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -595,6 +626,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JRadioButton rd_lamias;
     private javax.swing.JRadioButton rd_silfides;
     private javax.swing.JSpinner salamandras_alas;
+    private javax.swing.JMenuItem salir;
     private javax.swing.JSpinner silfides_alas;
     private javax.swing.JSpinner sp_altura;
     private javax.swing.JTextField tf_archivonombre1;

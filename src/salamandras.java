@@ -2,7 +2,7 @@
 public class salamandras extends hadas{
     double alas;
 
-    
+        
 
     public salamandras(double alas, String nombre, String edad, double altura) {
         super(nombre, edad, altura);
