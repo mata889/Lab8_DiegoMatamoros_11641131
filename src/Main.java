@@ -89,6 +89,14 @@ public class Main extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         tf_edad1 = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        hada1 = new javax.swing.JProgressBar();
+        hada2 = new javax.swing.JProgressBar();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         abrir = new javax.swing.JMenuItem();
@@ -255,7 +263,7 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(lamias_branquias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(85, 85, 85))))
+                        .addGap(146, 146, 146))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,12 +306,17 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(silfides_alas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(salamandras_alas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addGap(24, 24, 24)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(lamias_branquias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(lamias_branquias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58))))
         );
 
         jTabbedPane3.addTab("Agregar", jPanel5);
@@ -413,8 +426,8 @@ public class Main extends javax.swing.JFrame {
                 .addGap(246, 246, 246))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(156, 156, 156))
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(174, 174, 174))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -448,25 +461,102 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jLabel25)
                         .addComponent(tf_edad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(rb_salamandras1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65))
+                .addGap(74, 74, 74)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Modificar", jPanel6);
+
+        jComboBox2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox2ItemStateChanged(evt);
+            }
+        });
+
+        jButton1.setText("Eliminar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 749, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(138, 138, 138)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(244, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 461, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(350, Short.MAX_VALUE))
         );
 
         jTabbedPane3.addTab("Eliminar", jPanel7);
+
+        hada1.setStringPainted(true);
+
+        hada2.setStringPainted(true);
+
+        jButton2.setText("Pelear");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(267, 267, 267)
+                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(hada1, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
+                            .addComponent(hada2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(262, 262, 262)
+                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(hada1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(59, 59, 59)
+                .addComponent(hada2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(150, Short.MAX_VALUE))
+        );
+
+        jTabbedPane3.addTab("HiloBatalla", jPanel1);
 
         jMenu1.setText("Menu");
 
@@ -552,7 +642,38 @@ public class Main extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Se ha creado");
         }
 ///////////
+        DefaultComboBoxModel model = (DefaultComboBoxModel) jComboBox1.getModel();
+        for (int i = 0; i < ah.listahadas.size(); i++) {
+            if (model.getIndexOf(ah.listahadas.get(i).getNombre())
+                    == -1) {
+                model.addElement(ah.listahadas.get(i).getNombre());
+            }
 
+        }
+        DefaultComboBoxModel model2 = (DefaultComboBoxModel) jComboBox2.getModel();
+        for (int i = 0; i < ah.listahadas.size(); i++) {
+            if (model2.getIndexOf(ah.listahadas.get(i).getNombre())
+                    == -1) {
+                model2.addElement(ah.listahadas.get(i).getNombre());
+            }
+
+        }
+        DefaultComboBoxModel model3 = (DefaultComboBoxModel) jComboBox3.getModel();
+        for (int i = 0; i < ah.listahadas.size(); i++) {
+            if (model3.getIndexOf(ah.listahadas.get(i).getNombre())
+                    == -1) {
+                model3.addElement(ah.listahadas.get(i).getNombre());
+            }
+
+        }
+        DefaultComboBoxModel model4 = (DefaultComboBoxModel) jComboBox4.getModel();
+        for (int i = 0; i < ah.listahadas.size(); i++) {
+            if (model4.getIndexOf(ah.listahadas.get(i).getNombre())
+                    == -1) {
+                model4.addElement(ah.listahadas.get(i).getNombre());
+            }
+
+        }
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void rb_salamandrasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rb_salamandrasMouseClicked
@@ -602,45 +723,42 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_rd_lamiasItemStateChanged
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        
+
         ///guardar como --------------------
-        JFileChooser jfc = new JFileChooser();
-        int seleccion = jfc.showSaveDialog(this);
+        // JFileChooser jfc = new JFileChooser();
+        //int seleccion = jfc.showSaveDialog(this);
+        try {
 
-        
+            FileOutputStream fw = null;
+            ObjectOutputStream bw = null;
             try {
-
-                
-                FileOutputStream fw = null;
-                ObjectOutputStream bw = null;
-                try {
-                    fw = new FileOutputStream(fichero.getPath() + ".cbm");
-                    bw = new ObjectOutputStream(fw);
-                    for (hadas t : ah.listahadas) {
-                        bw.writeObject(t);
-                    }
-                    bw.flush();
-                } catch (Exception e) {
-                } finally {
-                    try {
-                        bw.close();
-                        fw.close();
-                    } catch (Exception e) {
-                    }
+                fw = new FileOutputStream(fichero.getPath());
+                bw = new ObjectOutputStream(fw);
+                for (hadas t : ah.listahadas) {
+                    bw.writeObject(t);
                 }
-                //fw = new FileWriter(fichero + ".cbm");
-                //bw = new BufferedWriter(fw);
                 bw.flush();
-                JOptionPane.showMessageDialog(this, "Archivo guardado exitosamente");
             } catch (Exception e) {
-                e.printStackTrace();
             } finally {
                 try {
-                    // bw.close();
-                    //fw.close();
+                    bw.close();
+                    fw.close();
                 } catch (Exception e) {
                 }
-            
+            }
+            //fw = new FileWriter(fichero + ".cbm");
+            //bw = new BufferedWriter(fw);
+            bw.flush();
+            JOptionPane.showMessageDialog(this, "Archivo guardado exitosamente");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                // bw.close();
+                //fw.close();
+            } catch (Exception e) {
+            }
+
         }
         guardarcomo.setEnabled(false);
     }//GEN-LAST:event_guardarActionPerformed
@@ -753,6 +871,30 @@ public class Main extends javax.swing.JFrame {
             }
 
         }
+        DefaultComboBoxModel model2 = (DefaultComboBoxModel) jComboBox2.getModel();
+        for (int i = 0; i < ah.listahadas.size(); i++) {
+            if (model2.getIndexOf(ah.listahadas.get(i).getNombre())
+                    == -1) {
+                model2.addElement(ah.listahadas.get(i).getNombre());
+            }
+
+        }
+        DefaultComboBoxModel model3 = (DefaultComboBoxModel) jComboBox3.getModel();
+        for (int i = 0; i < ah.listahadas.size(); i++) {
+            if (model3.getIndexOf(ah.listahadas.get(i).getNombre())
+                    == -1) {
+                model3.addElement(ah.listahadas.get(i).getNombre());
+            }
+
+        }
+        DefaultComboBoxModel model4 = (DefaultComboBoxModel) jComboBox4.getModel();
+        for (int i = 0; i < ah.listahadas.size(); i++) {
+            if (model4.getIndexOf(ah.listahadas.get(i).getNombre())
+                    == -1) {
+                model4.addElement(ah.listahadas.get(i).getNombre());
+            }
+
+        }
     }//GEN-LAST:event_abrirActionPerformed
 
     private void rd_lamias1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rd_lamias1ItemStateChanged
@@ -780,7 +922,28 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_rb_salamandras1MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-        // TODO add your handling code here:
+        /*if (rd_lamias.isSelected()) {
+            hadas hl = new lamias(((Number) lamias_alas.getValue()).floatValue(), ((Number) lamias_branquias.getValue()).doubleValue(), tf_nombres.getText(), tf_edad.getText(), ((Number) sp_altura.getValue()).doubleValue());
+
+            ah.setPersona(hl);
+            JOptionPane.showMessageDialog(this, "Se ha creado");
+        }
+        if (rd_silfides.isSelected()) {
+            hadas hs = new silfides(((Number) silfides_alas.getValue()).doubleValue(), tf_nombres.getText(), tf_edad.getText(), ((Number) sp_altura.getValue()).doubleValue());
+            ah.setPersona(hs);
+            JOptionPane.showMessageDialog(this, "Se ha creado");
+        }
+        if (rb_hamadriades.isSelected()) {
+            hadas hh = new hamadriades(tf_nombres.getText(), tf_edad.getText(), ((Number) sp_altura.getValue()).doubleValue());
+            ah.setPersona(hh);
+            JOptionPane.showMessageDialog(this, "Se ha creado");
+        }
+        if (rb_salamandras.isSelected()) {
+            hadas hs = new salamandras(((Number) salamandras_alas.getValue()).doubleValue(), tf_nombres.getText(), tf_edad.getText(), ((Number) sp_altura.getValue()).doubleValue());
+            ah.setPersona(hs);
+            JOptionPane.showMessageDialog(this, "Se ha creado");
+        }*/
+        JOptionPane.showMessageDialog(this, "Se ha modificado");
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
@@ -820,6 +983,89 @@ public class Main extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jComboBox1ItemStateChanged
+
+    private void jComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox2ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ItemStateChanged
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+
+        String nombre = (String) jComboBox2.getSelectedItem();
+        for (int i = 0; i < ah.listahadas.size(); i++) {
+            if (ah.listahadas.get(i).getNombre().equals(nombre)) {
+                ah.listahadas.remove(i);
+            }
+        }
+
+        ah.escribirArchivo();
+
+        DefaultComboBoxModel model = (DefaultComboBoxModel) jComboBox1.getModel();
+        for (int i = 0; i < model.getSize(); i++) {
+            model.removeElementAt(i);
+        }
+        for (int i = 0; i < ah.listahadas.size(); i++) {
+            if (model.getIndexOf(ah.listahadas.get(i).getNombre())
+                    == -1) {
+                model.addElement(ah.listahadas.get(i).getNombre());
+            }
+
+        }
+        DefaultComboBoxModel model2 = (DefaultComboBoxModel) jComboBox2.getModel();
+        for (int i = 0; i < model2.getSize(); i++) {
+            model2.removeElementAt(i);
+        }
+        for (int i = 0; i < ah.listahadas.size(); i++) {
+            if (model2.getIndexOf(ah.listahadas.get(i).getNombre())
+                    == -1) {
+                model2.addElement(ah.listahadas.get(i).getNombre());
+            }
+
+        }
+        DefaultComboBoxModel model3 = (DefaultComboBoxModel) jComboBox3.getModel();
+        for (int i = 0; i < model3.getSize(); i++) {
+            model3.removeElementAt(i);
+        }
+        for (int i = 0; i < ah.listahadas.size(); i++) {
+            if (model3.getIndexOf(ah.listahadas.get(i).getNombre())
+                    == -1) {
+                model3.addElement(ah.listahadas.get(i).getNombre());
+            }
+
+        }
+        DefaultComboBoxModel model4 = (DefaultComboBoxModel) jComboBox4.getModel();
+        for (int i = 0; i < model4.getSize(); i++) {
+            model4.removeElementAt(i);
+        }
+        for (int i = 0; i < ah.listahadas.size(); i++) {
+            if (model4.getIndexOf(ah.listahadas.get(i).getNombre())
+                    == -1) {
+                model4.addElement(ah.listahadas.get(i).getNombre());
+            }
+
+        }
+        cont++;
+        if (cont == 2) {
+            JOptionPane.showMessageDialog(this, "Se ha borrado");
+            cont = 0;
+        }
+
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        String nombre=(String) jComboBox3.getSelectedItem();
+        String nombre1=(String) jComboBox4.getSelectedItem();
+        
+        
+        
+        //
+        hada1.setMaximum(400);
+        hada2.setMaximum(450);
+        hada1.setValue(400);
+        hada2.setValue(450);
+        hilo ap = new hilo(hada1, hada2);
+        Thread p2 = new Thread(ap);
+        p2.start();
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -863,9 +1109,16 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem abrir;
     private javax.swing.JMenuItem guardar;
     private javax.swing.JMenuItem guardarcomo;
+    private javax.swing.JProgressBar hada1;
+    private javax.swing.JProgressBar hada2;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -886,6 +1139,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -912,4 +1166,5 @@ public class Main extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 File fichero;
     administrarHadas ah = new administrarHadas();
+    int cont = 0;
 }
