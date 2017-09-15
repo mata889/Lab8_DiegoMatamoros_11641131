@@ -7,6 +7,9 @@ public class salamandras extends hadas{
     public salamandras(double alas, String nombre, String edad, double altura) {
         super(nombre, edad, altura);
         this.alas = alas;
+        this.setTipo(tipo);
+        this.setPoder(poder);
+        this.setSalud(salud);
     }
 
     public String getTipo() {
@@ -17,8 +20,9 @@ public class salamandras extends hadas{
         this.tipo = "Salamandras";
     }
 
+    @Override
     public double getSalud() {
-        return salud;
+        return salud=683.0;
     }
 
     public void setSalud(double salud) {

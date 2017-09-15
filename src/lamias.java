@@ -9,6 +9,9 @@ public class lamias extends hadas {
         super(nombre, edad, altura);
         this.aleta = aleta;
         this.branquias = branquias;
+        this.setTipo(tipo);
+        this.setPoder(poder);
+        this.setSalud(salud);
     }
 
     public String getTipo() {

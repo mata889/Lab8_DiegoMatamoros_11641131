@@ -5,6 +5,9 @@ public class hamadriades extends hadas{
 
     public hamadriades(String nombre, String edad, double altura) {
         super(nombre, edad, altura);
+        this.setTipo(tipo);
+        this.setPoder(poder);
+        this.setSalud(salud);
     }
 
     public String getTipo() {

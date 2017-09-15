@@ -7,6 +7,9 @@ public class silfides extends hadas{
     public silfides(double alas, String nombre, String edad, double altura) {
         super(nombre, edad, altura);
         this.alas = alas;
+        this.setTipo(tipo);
+        this.setPoder(poder);
+        this.setSalud(salud);
     }
 
     public String getTipo() {
