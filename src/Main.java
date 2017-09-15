@@ -359,7 +359,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setText("Guardar");
+        jButton6.setText("Modificar");
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton6MouseClicked(evt);
@@ -381,10 +381,6 @@ public class Main extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -415,6 +411,10 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(sp_altura1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tf_edad1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(246, 246, 246))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(156, 156, 156))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -448,9 +448,9 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jLabel25)
                         .addComponent(tf_edad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(rb_salamandras1))
-                .addGap(109, 109, 109)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGap(65, 65, 65))
         );
 
         jTabbedPane3.addTab("Modificar", jPanel6);
@@ -522,7 +522,7 @@ public class Main extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
+            .addComponent(jTabbedPane3)
         );
 
         pack();
@@ -602,7 +602,47 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_rd_lamiasItemStateChanged
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        // TODO add your handling code here:
+        
+        ///guardar como --------------------
+        JFileChooser jfc = new JFileChooser();
+        int seleccion = jfc.showSaveDialog(this);
+
+        
+            try {
+
+                
+                FileOutputStream fw = null;
+                ObjectOutputStream bw = null;
+                try {
+                    fw = new FileOutputStream(fichero.getPath() + ".cbm");
+                    bw = new ObjectOutputStream(fw);
+                    for (hadas t : ah.listahadas) {
+                        bw.writeObject(t);
+                    }
+                    bw.flush();
+                } catch (Exception e) {
+                } finally {
+                    try {
+                        bw.close();
+                        fw.close();
+                    } catch (Exception e) {
+                    }
+                }
+                //fw = new FileWriter(fichero + ".cbm");
+                //bw = new BufferedWriter(fw);
+                bw.flush();
+                JOptionPane.showMessageDialog(this, "Archivo guardado exitosamente");
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    // bw.close();
+                    //fw.close();
+                } catch (Exception e) {
+                }
+            
+        }
+        guardarcomo.setEnabled(false);
     }//GEN-LAST:event_guardarActionPerformed
 
     private void guardarcomoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarcomoActionPerformed
